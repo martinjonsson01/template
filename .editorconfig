@@ -37,6 +37,10 @@ dotnet_diagnostic.SA1101.severity = none    # Prefix local calls with this - Our
 dotnet_diagnostic.SA1200.severity = none    # Using directive should appear within a namespace declaration - Our style requires using directives to come before namespace declaration
 dotnet_diagnostic.CA1303.severity = none    # Do not pass literals as localized parameters - Project doesn't have to be localized
 
+# Enabled rules, comment format is:          # [Name of rule] - [Reason for enabling]
+dotnet_diagnostic.IDE0005.severity = warning # Using directive is unnecessary - Style requires unused usings to be removed
+dotnet_diagnostic.IDE0161.severity = warning # Convert to file-scoped namespace - Style requires file-scoped namespace declarations
+
 # New line preferences
 csharp_new_line_before_open_brace = all
 csharp_new_line_before_else = true
@@ -204,3 +208,7 @@ end_of_line = lf
 
 [*.{cmd, bat}]
 end_of_line = crlf
+
+[GlobalUsings.cs]
+# Global usings is allowed to contain unnecessary usings
+dotnet_diagnostic.IDE0005.severity = none

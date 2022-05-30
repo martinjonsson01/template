@@ -1,8 +1,5 @@
-using System;
+namespace First.Spec.Drivers;
 
-namespace First.Spec.Drivers
+public class Driver
 {
-    public class Driver
-    {
-    }
 }

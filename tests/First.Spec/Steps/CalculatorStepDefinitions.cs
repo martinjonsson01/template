@@ -1,6 +1,4 @@
-﻿using FluentAssertions;
-
-namespace First.Spec.Steps;
+﻿namespace First.Spec.Steps;
 
 // For additional details on SpecFlow step definitions see https://go.specflow.org/doc-stepdef
 [Binding]
