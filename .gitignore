@@ -578,10 +578,10 @@ fabric.properties
 # Ignore everything but code style settings and run configurations
 # that are supposed to be shared within teams.
 
-.idea/*
+**/.idea.Template/.idea/*
 
-!.idea/codeStyles
-!.idea/runConfigurations
+!**/.idea.Template/.idea/codeStyles
+!**/.idea.Template/.idea/runConfigurations
 
 ### Rider ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
