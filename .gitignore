@@ -648,6 +648,19 @@ fabric.properties
 # Support for Project snippet scope
 .vscode/*.code-snippets
 
+#SpecFlow Stuff
+/_NCrunch_TechTalk.SpecFlow_VS2013/StoredText
+!lib/**
+TechTalk.SpecFlow.Tools/app.config
+TechTalk.SpecFlow.Tools/plugincompability.config
+TechTalk.SpecFlow.sln.GhostDoc.xml
+Features.Generated/
+GitExtensions.settings.backup
+
+*.feature.cs
+*.AssemblyHooks.cs
+*.AssemblyHooks.vb
+
 # Ignore code-workspaces
 
 ### VisualStudio ###
