@@ -32,6 +32,12 @@ public sealed class CalculatorStepDefinitions
         _result = _calculator.Add();
     }
 
+    [When(@"the two numbers are subtracted")]
+    public void WhenTheTwoNumbersAreSubtracted()
+    {
+        _result = _calculator.Subtract();
+    }
+
     [Then("the result should be (.*)")]
     public void ThenTheResultShouldBe(int expected)
     {

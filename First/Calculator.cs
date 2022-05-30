@@ -23,4 +23,13 @@ public class Calculator
     {
         return FirstNumber + SecondNumber;
     }
+
+    /// <summary>
+    /// Subtracts the two numbers.
+    /// </summary>
+    /// <returns>The difference of the two numbers.</returns>
+    public int Subtract()
+    {
+        return FirstNumber - SecondNumber;
+    }
 }
