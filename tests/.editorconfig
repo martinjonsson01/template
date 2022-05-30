@@ -1,0 +1,4 @@
+﻿[*.cs]
+# Disabled rules, comment format is: [Name of rule] - [Reason for disabling]
+dotnet_diagnostic.CS1591.severity = none # Missing XML comment for publicly visible type or member - Don't need to document test methods
+dotnet_diagnostic.SA1600.severity = none # Elements should be documented - Don't need to document test methods

@@ -1,16 +1,15 @@
-﻿namespace First.Spec.Steps;
+﻿using FluentAssertions;
 
-using FluentAssertions;
+namespace First.Spec.Steps;
 
+// For additional details on SpecFlow step definitions see https://go.specflow.org/doc-stepdef
 [Binding]
 public sealed class CalculatorStepDefinitions
 {
-    // For additional details on SpecFlow step definitions see https://go.specflow.org/doc-stepdef
+    private readonly Calculator _calculator = new();
 
     private readonly ScenarioContext _scenarioContext;
-
-    private readonly Calculator _calculator = new();
-    private          int        _result;
+    private int _result;
 
     public CalculatorStepDefinitions(ScenarioContext scenarioContext)
     {

@@ -5,7 +5,7 @@ using TechTalk.SpecFlow;
 namespace First.Spec.Hooks
 {
     [Binding]
-    public class Hooks
+    public class Hook
     {
     }
 }

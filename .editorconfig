@@ -24,11 +24,18 @@ indent_size = 2
 # C# files
 [*.cs]
 
-# Disabled rules
-dotnet_diagnostic.CA2000.severity = none
-dotnet_diagnostic.IDE0011.severity = none
-dotnet_diagnostic.SA1000.severity = none
-dotnet_diagnostic.CA1062.severity = none
+# Disabled rules, comment format is:        # [Name of rule] - [Reason for disabling]
+dotnet_diagnostic.CA2000.severity = none    # Dispose objects before losing scope - Because of C#8 using statement
+# dotnet_diagnostic.IDE0011.severity = none # Add braces
+dotnet_diagnostic.SA1000.severity = none    # KeywordsMustBeSpacedCorrectly - Doesn't know about target-typed new expressions from C#9
+dotnet_diagnostic.CA1062.severity = none    # Validate arguments of public methods - Doesn't recognize non-nullable arguments sometimes
+dotnet_diagnostic.SA1309.severity = none    # Disallow '_' name prefix - Our style requires '_' in front of private members
+dotnet_diagnostic.CA1014.severity = none    # Mark assemblies with CLSCompliantAttribute - Don't need assemblies to work across languages
+dotnet_diagnostic.SA1633.severity = none    # FileMustHaveHeader - Don't have a common file header
+dotnet_diagnostic.CLASS0001.severity = none # Seal classes that do not have any virtual or abstract methods, properties, events or indexers - Don't see the need, it's unnecessarily strict
+dotnet_diagnostic.SA1101.severity = none    # Prefix local calls with this - Our style requires 'this' to only be used when necessary
+dotnet_diagnostic.SA1200.severity = none    # Using directive should appear within a namespace declaration - Our style requires using directives to come before namespace declaration
+dotnet_diagnostic.CA1303.severity = none    # Do not pass literals as localized parameters - Project doesn't have to be localized
 
 # New line preferences
 csharp_new_line_before_open_brace = all
