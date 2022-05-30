@@ -6,6 +6,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{5657B123-14B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{EA0709D9-D796-4D1B-B710-11F79A4B3F23}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "First.Spec", "tests\First.Spec\First.Spec.csproj", "{F9C741C8-71F2-4E91-93B4-CF562C07FA3B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -16,8 +18,13 @@ Global
 		{1BDBFB92-B233-4247-B540-85D930CCF170}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1BDBFB92-B233-4247-B540-85D930CCF170}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1BDBFB92-B233-4247-B540-85D930CCF170}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9C741C8-71F2-4E91-93B4-CF562C07FA3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9C741C8-71F2-4E91-93B4-CF562C07FA3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9C741C8-71F2-4E91-93B4-CF562C07FA3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9C741C8-71F2-4E91-93B4-CF562C07FA3B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{1BDBFB92-B233-4247-B540-85D930CCF170} = {5657B123-14B7-4BF3-BA07-FA77BE509AFC}
+		{F9C741C8-71F2-4E91-93B4-CF562C07FA3B} = {EA0709D9-D796-4D1B-B710-11F79A4B3F23}
 	EndGlobalSection
 EndGlobal
