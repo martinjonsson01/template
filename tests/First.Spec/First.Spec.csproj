@@ -41,7 +41,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\First\First.csproj" />
+    <ProjectReference Include="..\..\src\First\First.csproj" />
   </ItemGroup>
 
 </Project>

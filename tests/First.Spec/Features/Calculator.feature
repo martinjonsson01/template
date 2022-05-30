@@ -21,6 +21,7 @@ Link to a feature: [Calculator]($projectname$/Features/Calculator.feature)
       | 60    | 30     | 90     |
 
     Scenario: Subtract two numbers
+    Subtract two numbers with the calculator
         Given the first number is <First>
         And the second number is <Second>
 

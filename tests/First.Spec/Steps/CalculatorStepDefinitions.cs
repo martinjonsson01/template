@@ -6,13 +6,7 @@ public sealed class CalculatorStepDefinitions
 {
     private readonly Calculator _calculator = new();
 
-    private readonly ScenarioContext _scenarioContext;
     private int _result;
-
-    public CalculatorStepDefinitions(ScenarioContext scenarioContext)
-    {
-        _scenarioContext = scenarioContext;
-    }
 
     [Given("the first number is (.*)")]
     public void GivenTheFirstNumberIs(int number)
