@@ -88,7 +88,7 @@ jobs:
           dotnet test tests/${{matrix.project}}.${{matrix.test-type}}
           --no-build
           --logger "console;verbosity=detailed"
-          --verbosity diagnostic
+          --verbosity detailed
           --blame-hang
           --blame-hang-timeout 1m
           --blame-hang-dump-type full
