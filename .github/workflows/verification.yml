@@ -67,9 +67,6 @@ jobs:
       - name: 🛠 Build without warnings
         run: dotnet build --no-restore -WarnAsError
 
-      - name: Print file structure
-        run: tree -a
-
   test:
     runs-on: ubuntu-latest
     timeout-minutes: 5
@@ -100,9 +97,6 @@ jobs:
           path: ./**
           key: ${{ github.run_id }}-build-cache
 
-      - name: Print file structure
-        run: tree -a
-
       - name: 🧪 Run ${{matrix.project}}.${{matrix.test-type}} with code coverage
         run: >
           dotnet test tests/${{matrix.project}}.${{matrix.test-type}}
@@ -119,9 +113,6 @@ jobs:
           -p:ExcludeByFile=\"**/Program.cs\"
           -p:ExcludeByAttribute=\"Obsolete,GeneratedCodeAttribute,CompilerGeneratedAttribute,ExcludeFromCodeCoverageAttribute\"
           -p:Include=\"[${{matrix.project}}]*\"
-
-      - name: Print file structure
-        run: tree -a
 
       - name: 📃 Coveralls Parallel
         uses: coverallsapp/github-action@master
