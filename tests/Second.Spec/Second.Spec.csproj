@@ -22,7 +22,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
   </ItemGroup>
-  
+
   <ItemGroup>
     <Using Include="TechTalk.SpecFlow" />
   </ItemGroup>
@@ -40,7 +40,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\First\First.csproj" />
+    <ProjectReference Include="..\..\src\Second\Second.csproj" />
   </ItemGroup>
 
 </Project>
