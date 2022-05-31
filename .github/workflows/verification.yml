@@ -17,9 +17,6 @@ on:
 
   workflow_dispatch:
 
-env:
-  NUGET_PACKAGES: /tmp/.nuget/packages
-
 jobs:
   build:
     name: 🛠 Build all projects in solution
@@ -86,9 +83,6 @@ jobs:
 
       - name: Print file structure
         run: tree -a
-
-      - name: Install Coverlet
-        run: dotnet tool install --global coverlet.console
 
       - name: 🧪 Run ${{matrix.project}}.${{matrix.test-type}} with code coverage
         run: >
