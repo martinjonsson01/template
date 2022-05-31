@@ -99,8 +99,8 @@ jobs:
           -p:CollectCoverage=true
           -p:Threshold=90
           -p:ThresholdType=branch
-          -p:CoverletOutput='../../coverage/lcov.info'
-          -p:CoverletOutputFormat=lcov
+          -p:CoverletOutput=../../coverage/coverage.json
+          -p:CoverletOutputFormat=opencover
           -p:ExcludeByFile=\"**/Program.cs\"
           -p:ExcludeByAttribute=\"Obsolete,GeneratedCodeAttribute,CompilerGeneratedAttribute,ExcludeFromCodeCoverageAttribute\"
           -p:Include=\"[${{matrix.project}}]*\"
