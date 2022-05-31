@@ -56,6 +56,9 @@ jobs:
       - name: 🛠 Build without warnings
         run: dotnet build --no-restore -WarnAsError
 
+      - name: Print file structure
+        run: tree -a
+
   test:
     runs-on: ubuntu-latest
     timeout-minutes: 5
@@ -76,6 +79,9 @@ jobs:
         with:
           path: /home/runner/work/${{ github.event.repository.name }}/**
           key: ${{ github.run_id }}-build-cache
+
+      - name: Print file structure
+        run: tree -a
 
       - name: 🧪 Run ${{matrix.project}}.${{matrix.test-type}} with code coverage
         run: >
