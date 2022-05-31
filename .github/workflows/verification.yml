@@ -7,6 +7,7 @@ on:
     paths:
       - 'src/**'
       - 'tests/**'
+      - '.github/workflows/verification.yml'
 
   pull_request:
     types:
@@ -86,7 +87,7 @@ jobs:
           -p:CollectCoverage=true
           -p:Threshold=90
           -p:ThresholdType=branch
-          -p:CoverletOutput=../../CoverageResults/
+          -p:CoverletOutput='../../coverage/lcov.info'
           -p:CoverletOutputFormat=lcov
           -p:ExcludeByFile=\"**/Program.cs\"
           -p:ExcludeByAttribute=\"Obsolete,GeneratedCodeAttribute,CompilerGeneratedAttribute,ExcludeFromCodeCoverageAttribute\"
