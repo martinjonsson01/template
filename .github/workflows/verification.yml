@@ -29,6 +29,14 @@ jobs:
         with:
           fetch-depth: 0 # avoid shallow clone so nbgv can do its work.
 
+      - name: 🧰 Cache NuGet packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.nuget/packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget-
+
       - name: 🧰 Cache build
         uses: actions/cache@v3
         with:
@@ -74,6 +82,14 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0 # avoid shallow clone so nbgv can do its work.
+
+      - name: 🧰 Read Cached NuGet packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.nuget/packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget-
 
       - name: 🧰 Read cached build
         uses: actions/cache@v3
