@@ -1,34 +1,35 @@
 ﻿<Project>
 
-    <!-- Include common project properties -->
-    <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)..\'))"/>
+  <!-- Include common project properties -->
+  <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)..\'))"/>
 
-    <!-- Configure project -->
-    <PropertyGroup>
-        <GenerateDocumentationFile>false</GenerateDocumentationFile>
+  <!-- Configure project -->
+  <PropertyGroup>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
 
-        <IsPackable>false</IsPackable>
-    </PropertyGroup>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
 
-    <!-- Testing assemblies -->
-    <ItemGroup>
-        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0"/>
-        <PackageReference Include="xunit" Version="2.4.1"/>
-        <PackageReference Include="xunit.runner.console" Version="2.4.1">
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-            <PrivateAssets>all</PrivateAssets>
-        </PackageReference>
-        <PackageReference Include="coverlet.collector" Version="3.1.0">
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-            <PrivateAssets>all</PrivateAssets>
-        </PackageReference>
-    </ItemGroup>
+  <!-- Testing assemblies -->
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0"/>
+    <PackageReference Include="xunit" Version="2.4.1"/>
+    <PackageReference Include="xunit.runner.console" Version="2.4.1">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="coverlet.collector" Version="3.1.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
 
-    <!-- Testing utility libraries -->
-    <ItemGroup>
-        <PackageReference Include="Bogus" Version="34.0.2"/>
-        <PackageReference Include="Moq" Version="4.18.1"/>
-        <PackageReference Include="FluentAssertions" Version="6.2.0"/>
-    </ItemGroup>
+  <!-- Testing utility libraries -->
+  <ItemGroup>
+    <PackageReference Include="Bogus" Version="34.0.2"/>
+    <PackageReference Include="Moq" Version="4.18.1"/>
+    <PackageReference Include="FluentAssertions" Version="6.2.0"/>
+  </ItemGroup>
 
 </Project>
