@@ -87,12 +87,10 @@ jobs:
       - name: 🧪 Run ${{matrix.project}}.${{matrix.test-type}} with code coverage
         run: >
           dotnet test tests/${{matrix.project}}.${{matrix.test-type}}
-          --no-build
           --verbosity minimal
           --blame-hang
           --blame-hang-timeout 1m
           --blame-hang-dump-type full
-          --collect:"XPlat Code Coverage"
           -p:CollectCoverage=true
           -p:Threshold=90
           -p:ThresholdType=branch
