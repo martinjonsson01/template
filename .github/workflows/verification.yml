@@ -87,6 +87,9 @@ jobs:
       - name: Print file structure
         run: tree -a
 
+      - name: Install Coverlet
+        run: dotnet tool install --global coverlet.console
+
       - name: 🧪 Run ${{matrix.project}}.${{matrix.test-type}} with code coverage
         run: >
           dotnet test tests/${{matrix.project}}.${{matrix.test-type}}
@@ -95,6 +98,7 @@ jobs:
           --blame-hang
           --blame-hang-timeout 1m
           --blame-hang-dump-type full
+          --collect:"XPlat Code Coverage"
           -p:CollectCoverage=true
           -p:Threshold=90
           -p:ThresholdType=branch
