@@ -23,4 +23,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <!-- Make the version.json file global across all projects, to save git computation time -->
+  <PropertyGroup>
+    <GitVersionBaseDirectory>$(MSBuildThisFileDirectory)</GitVersionBaseDirectory>
+  </PropertyGroup>
+
 </Project>
