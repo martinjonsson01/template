@@ -31,7 +31,7 @@ jobs:
       - name: 🧰 Cache build
         uses: actions/cache@v3
         with:
-          path: /home/runner/work/${{ github.repository }}/**
+          path: /home/runner/work/${{ github.event.repository.name }}/**
           key: ${{ github.run_id }}-build-cache
 
       - name: ⚙️ Setup dotnet
@@ -73,7 +73,7 @@ jobs:
       - name: 🧰 Read cached build
         uses: actions/cache@v3
         with:
-          path: /home/runner/work/${{ github.repository }}/**
+          path: /home/runner/work/${{ github.event.repository.name }}/**
           key: ${{ github.run_id }}-build-cache
 
       - name: 🧪 Run ${{matrix.project}}.${{matrix.test-type}} with code coverage
