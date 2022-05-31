@@ -6,7 +6,7 @@ on:
       - master
     paths:
       - 'src/**'
-      - 'tests/**'
+      - 'test/**'
       - '.github/workflows/verification.yml'
 
   pull_request:
@@ -56,7 +56,7 @@ jobs:
       - name: 🛠 Build without warnings
         run: dotnet build --no-restore -WarnAsError
 
-  tests:
+  test:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     needs: [ build ]
@@ -79,8 +79,7 @@ jobs:
 
       - name: 🧪 Run ${{matrix.project}}.${{matrix.test-type}} with code coverage
         run: >
-          dotnet test ./tests/${{matrix.project}}.${{matrix.test-type}}/${{matrix.project}}.${{matrix.test-type}}.csproj
-          --no-build
+          dotnet test --no-build ./test/${{matrix.project}}.${{matrix.test-type}}
           --blame-hang
           --blame-hang-timeout 1m
           --blame-hang-dump-type none
@@ -103,7 +102,7 @@ jobs:
   finish:
     name: 🗄 Upload Coveralls data
     runs-on: ubuntu-latest
-    needs: [ tests ]
+    needs: [ test ]
 
     steps:
       - name: Coveralls Finished
@@ -115,7 +114,7 @@ jobs:
   trigger-deploy:
     name: 📈 Trigger deploy workflow
     runs-on: ubuntu-latest
-    needs: [ tests ]
+    needs: [ test ]
 
     steps:
       - name: Repository Dispatch
