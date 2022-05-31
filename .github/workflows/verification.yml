@@ -17,6 +17,9 @@ on:
 
   workflow_dispatch:
 
+env:
+  NUGET_PACKAGES: /tmp/.nuget/packages
+
 jobs:
   build:
     name: 🛠 Build all projects in solution
