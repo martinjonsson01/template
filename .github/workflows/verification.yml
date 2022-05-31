@@ -70,6 +70,7 @@ jobs:
       matrix:
         project: [ 'First', 'Second' ]
         test-type: [ 'Spec', 'UnitTests' ]
+      fail-fast: false
 
     steps:
       - name: 🛒 Checkout repository
@@ -103,6 +104,9 @@ jobs:
           -p:ExcludeByFile=\"**/Program.cs\"
           -p:ExcludeByAttribute=\"Obsolete,GeneratedCodeAttribute,CompilerGeneratedAttribute,ExcludeFromCodeCoverageAttribute\"
           -p:Include=\"[${{matrix.project}}]*\"
+
+      - name: Print file structure
+        run: tree -a
 
       - name: 📃 Coveralls Parallel
         uses: coverallsapp/github-action@master
