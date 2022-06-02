@@ -14,14 +14,16 @@ public class UnitTest1
         false.Should().BeFalse();
     }
 
-    [Fact]
-    public void Greeting_Is_Not_Empty()
+    [Theory]
+    [InlineData(null)]
+    [InlineData("Someone")]
+    public void Greeting_Is_Not_Empty(string? name)
     {
         // Arrange
         var greeter = new Greeter();
 
         // Act
-        string response = greeter.Greet("Someone");
+        string response = greeter.Greet(name);
 
         // Assert
         response.Should().NotBeNullOrEmpty();
