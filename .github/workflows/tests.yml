@@ -1,0 +1,87 @@
+﻿name: run tests
+
+on:
+  workflow_call:
+    inputs:
+      projects:
+        description: 'Stringified JSON object listing test projects to run tests of'
+        required: true
+        type: string
+      coverage-threshold:
+        description: 'Under which code coverage level (%) to fail the workflow'
+        default: 90
+        required: false
+        type: number
+      tests-directory:
+        description: 'Where the test projects are located'
+        required: false
+        default: 'tests'
+        type: string
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    needs: [ build ]
+    strategy:
+      matrix:
+        project: ${{ fromJson(inputs.projects) }}
+      fail-fast: false
+
+    steps:
+      - name: 🛒 Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # avoid shallow clone so nbgv can do its work.
+
+      - name: 🧰 Read Cached NuGet packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.nuget/packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+
+      - name: 🧰 Read cached build
+        uses: actions/cache@v3
+        with:
+          path: ./**
+          key: ${{ github.run_id }}-build-cache
+
+      - name: 🧪 Run ${{matrix.project}} with code coverage
+        run: >
+          dotnet test ${{inputs.tests-directory}}/${{matrix.project}}
+          --no-build
+          --verbosity minimal
+          --blame-hang
+          --blame-hang-timeout 1m
+          --blame-hang-dump-type full
+          -p:CollectCoverage=true
+          ${{ inputs.coverage-threshold && format('-p:Threshold={0}', inputs.coverage-threshold) || ' ' }}
+          -p:ThresholdType=\"line,branch,method\"
+          -p:CoverletOutput=../../coverage/lcov.info
+          -p:CoverletOutputFormat=lcov
+          -p:ExcludeByFile=\"**/Program.cs\"
+          -p:ExcludeByAttribute=\"Obsolete,GeneratedCodeAttribute,CompilerGeneratedAttribute,ExcludeFromCodeCoverageAttribute\"
+          -p:Include=\"[${{matrix.project}}]*\"
+
+      - name: 📃 Coveralls Parallel
+        uses: coverallsapp/github-action@master
+        env:
+          NODE_COVERALLS_DEBUG: 1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          flag-name: run-${{matrix.project}}
+          parallel: true
+
+  finish:
+    name: 🗄 Upload Coveralls data
+    runs-on: ubuntu-latest
+    needs: [ test ]
+
+    steps:
+      - name: Coveralls Finished
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.github_token }}
+          parallel-finished: true
