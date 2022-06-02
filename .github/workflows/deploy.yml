@@ -1,0 +1,14 @@
+﻿name: deploy release
+
+on:
+  workflow_call:
+
+jobs:
+  deploy:
+    name: 🛠 Build all projects in solution
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: 🛒 Checkout repository
+        run: echo 'Not implemented yet'
