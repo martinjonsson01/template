@@ -19,50 +19,7 @@ on:
 
 jobs:
   build:
-    name: 🛠 Build all projects in solution
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-
-    steps:
-      - name: 🛒 Checkout repository
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0 # avoid shallow clone so nbgv can do its work.
-
-      - name: 🧰 Cache NuGet packages
-        uses: actions/cache@v3
-        with:
-          path: ~/.nuget/packages
-          key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
-
-      - name: 🧰 Cache build
-        uses: actions/cache@v3
-        with:
-          path: ./**
-          key: ${{ github.run_id }}-build-cache
-
-      - name: ⚙️ Setup dotnet
-        uses: actions/setup-dotnet@v2
-        with:
-          dotnet-version: 6.0.x
-
-      - name: 🎨 Setup color
-        run: |
-          echo "DOTNET_SYSTEM_CONSOLE_ALLOW_ANSI_COLOR_REDIRECTION=1" >> $GITHUB_ENV
-          echo "TERM=xterm" >> $GITHUB_ENV
-
-      - name: ⚙️ Setup GIT versioning
-        uses: dotnet/nbgv@v0.4.0
-        with:
-          setAllVars: true
-
-      - name: ♻ Restore dependencies
-        run: dotnet restore
-
-      - name: 🛠 Build without warnings
-        run: dotnet build --no-restore -WarnAsError
+    uses: ./.github/workflows/build.yml
 
   test:
     runs-on: ubuntu-latest
