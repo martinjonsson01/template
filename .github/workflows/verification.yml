@@ -40,6 +40,6 @@ jobs:
         ]
 
   trigger-deploy:
-    needs: [ build, test ]
+    needs: [ test ]
     name: 📈 Trigger deploy workflow
     uses: ./.github/workflows/deploy.yml
