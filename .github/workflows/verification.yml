@@ -39,6 +39,19 @@ jobs:
           },
         ]
 
+  analysis:
+    needs: [ build ]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v2
+        with:
+          languages: csharp
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v2
+
   trigger-deploy:
     needs: [ test ]
     name: 📈 Trigger deploy workflow
