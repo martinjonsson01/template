@@ -22,6 +22,7 @@ jobs:
     uses: ./.github/workflows/build.yml
 
   unit-tests:
+    needs: [ build ]
     uses: ./.github/workflows/tests.yml
     with:
       projects: >-
@@ -29,6 +30,7 @@ jobs:
       coverage-threshold: 0
 
   functional-tests:
+    needs: [ build, unit-tests ]
     uses: ./.github/workflows/tests.yml
     with:
       projects: >-
