@@ -21,27 +21,6 @@ jobs:
   build:
     uses: ./.github/workflows/build.yml
 
-  analysis:
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-
-    steps:
-      - name: 🛒 Checkout repository
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0 # avoid shallow clone so nbgv can do its work.
-
-      - name: Initialize CodeQL
-        uses: github/codeql-action/init@v2
-        with:
-          languages: csharp
-
-      - name: Build solution
-        run: dotnet build
-
-      - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v2
-
   test:
     needs: [ build ]
     uses: ./.github/workflows/tests.yml
