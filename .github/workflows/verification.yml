@@ -27,7 +27,7 @@ jobs:
     with:
       projects: >-
         ["First", "Second"]
-      test-types: >-
+      test-types: >
         [
           {
             type: "UnitTests",
