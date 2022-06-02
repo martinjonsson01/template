@@ -17,7 +17,7 @@ public class UnitTest1
     }
 
     [Fact]
-    public void Adding_Zero_Does_Not_Change_Number()
+    public void Adding_Zero_Does_Not_Change_The_Number()
     {
         // Arrange
         const int number = 12;
@@ -32,7 +32,7 @@ public class UnitTest1
     }
 
     [Fact]
-    public void Subtracting_Zero_Does_Not_Change_Number()
+    public void Subtracting_Zero_Does_Not_Change_The_Number()
     {
         // Arrange
         const int number = 12;
