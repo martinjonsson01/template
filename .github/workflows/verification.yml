@@ -26,16 +26,18 @@ jobs:
     uses: ./.github/workflows/tests.yml
     with:
       projects: >-
-        ["First.UnitTests", "Second.UnitTests"]
-      coverage-threshold: 90
-
-  functional-tests:
-    needs: [ build, unit-tests ]
-    uses: ./.github/workflows/tests.yml
-    with:
-      projects: >-
-        ["First.Spec", "Second.Spec"]
-      coverage-threshold: 20
+        ["First", "Second"]
+      test-types: >-
+        [
+          {
+            type: "UnitTests",
+            coverage-threshold: 90
+          },
+          {
+            type: "Spec",
+            coverage-threshold: 20
+          },
+        ]
 
   trigger-deploy:
     needs: [ build, unit-tests, functional-tests ]
