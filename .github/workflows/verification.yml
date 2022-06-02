@@ -117,7 +117,7 @@ jobs:
       - name: 📃 Coveralls Parallel
         uses: coverallsapp/github-action@master
         with:
-          github-token: ${{ secrets.github_token }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           flag-name: run-${{matrix.project}}.${{matrix.test-type}}
           parallel: true
 
