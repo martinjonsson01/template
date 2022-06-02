@@ -62,7 +62,7 @@ jobs:
           -p:CoverletOutputFormat=lcov
           -p:ExcludeByFile=\"**/Program.cs\"
           -p:ExcludeByAttribute=\"Obsolete,GeneratedCodeAttribute,CompilerGeneratedAttribute,ExcludeFromCodeCoverageAttribute\"
-          -p:Include=\"[${{matrix.project}}.${{matrix.test-type.type}}]*\"
+          -p:Include=\"[${{matrix.project}}]*\"
 
       - name: 📃 Coveralls Parallel
         if: matrix.test-type.coverageThreshold > 0
