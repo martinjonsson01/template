@@ -67,8 +67,6 @@ jobs:
       - name: 📃 Coveralls Parallel
         if: matrix.test-type.coverageThreshold > 0
         uses: coverallsapp/github-action@master
-        env:
-          NODE_COVERALLS_DEBUG: 1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           flag-name: run-${{matrix.project}}.${{matrix.test-type.type}}
