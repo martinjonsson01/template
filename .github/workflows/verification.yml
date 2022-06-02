@@ -27,7 +27,7 @@ jobs:
     with:
       projects: >-
         ["First.UnitTests", "Second.UnitTests"]
-      coverage-threshold: 0
+      coverage-threshold: 90
 
   functional-tests:
     needs: [ build, unit-tests ]
@@ -35,6 +35,7 @@ jobs:
     with:
       projects: >-
         ["First.Spec", "Second.Spec"]
+      coverage-threshold: 20
 
   trigger-deploy:
     needs: [ build, unit-tests, functional-tests ]
