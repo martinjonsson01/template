@@ -1,3 +1,5 @@
+[![Coverage Status](https://coveralls.io/repos/github/martinjonsson01/template/badge.svg?branch=master)](https://coveralls.io/github/martinjonsson01/template?branch=master)
+
 # .NET Template
 A .NET solution template, with complete testing and CI-setup.
 
