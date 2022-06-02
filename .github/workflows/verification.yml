@@ -37,5 +37,6 @@ jobs:
         ["First.Spec", "Second.Spec"]
 
   trigger-deploy:
+    needs: [ build, unit-tests, functional-tests ]
     name: 📈 Trigger deploy workflow
     uses: ./.github/workflows/deploy.yml
