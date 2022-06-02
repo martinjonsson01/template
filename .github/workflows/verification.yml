@@ -27,15 +27,15 @@ jobs:
     with:
       projects: >-
         ["First", "Second"]
-      test-types: >
+      test-types: >-
         [
           {
             type: "UnitTests",
-            coverage-threshold: 90
+            coverageThreshold: 90
           },
           {
             type: "Spec",
-            coverage-threshold: 20
+            coverageThreshold: 20
           },
         ]
 
