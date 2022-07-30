@@ -9,6 +9,9 @@ Uses:
 - Auto-generated changelogs
 - [Conventional commit messages](https://www.conventionalcommits.org/en/v1.0.0/)
 
+To-do:
+- [Docker containers for test databases](https://github.com/testcontainers/testcontainers-dotnet)
+
 ## Version management
 The version format is `[MAJOR].[MINOR].[PATCH][-pre]`.
 
